@@ -1,4 +1,4 @@
-// stores/counter.js
+//stock les articles
 import { defineStore } from 'pinia';
 
 export const usePiniaStore = defineStore('posts', {
@@ -14,8 +14,8 @@ export const usePiniaStore = defineStore('posts', {
 		},
 		getPostGenre: (state) =>{
 			return (postGenre) =>
-			state.posts.filter((post) => {
-				return String(post.genre) === String(postGenre);
+				state.posts.filter((post) => {
+					return String(post.genre) === String(postGenre);
 			})
 		}
 	},
