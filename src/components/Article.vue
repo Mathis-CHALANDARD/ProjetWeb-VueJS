@@ -20,7 +20,7 @@ export default {
 	<div class="card">
 		<h2>{{ post.title }}</h2>
 
-		<p>{{ post.body }}</p>
+		<p>{{ post.text }}</p>
 		<button type="button" @click="clicked">
 			{{ textButton }}
 		</button>

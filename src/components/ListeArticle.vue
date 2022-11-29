@@ -1,6 +1,5 @@
 <script>
 //montre tout les articles disponibles
-import { usePiniaStore } from '../postsStore'
 
 import PostItem from './Article.vue';
 export default{
@@ -25,9 +24,7 @@ export default{
     },
 
     mounted(){
-        const posts = usePiniaStore();
-
-		fetch('http://jsonplaceholder.typicode.com/posts')//http://localhost:3000/articles
+		fetch('http://localhost:3000/article')
 			.then((res) => res.json())
 			.then((res) => {
 				this.posts = res;

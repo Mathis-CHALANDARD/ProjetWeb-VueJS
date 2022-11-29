@@ -1,6 +1,5 @@
 <script>
 //montre le/les article(s) séléctionné(s) (en fonction du genre)
-import { usePiniaStore } from '../postsStore';
 export default {
 	props: ['id', 'postItem', 'genre'],
 	data() {
@@ -12,7 +11,7 @@ export default {
 	methods: {},
 
 	mounted() {
-		fetch('https://jsonplaceholder.typicode.com/posts/'+ this.$route.params.id)//http://localhost:3000/articles   modifier le parametre id par genre
+		fetch('http://localhost:3000/article/'+ this.$route.params.genre)//http://localhost:3000/articles   modifier le parametre id par genre
 			.then((res) => res.json())
 			.then((res) => {
 				this.post = res;
