@@ -13,6 +13,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --maincolor : #42b883;
 }
 
 a {
@@ -36,8 +37,8 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  min-width: 320px;
-  min-height: 100vh;
+  max-width: 1920px;
+  max-height: 100vh;
 }
 
 h1 {
@@ -52,16 +53,19 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: transparent;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: #fff;
+  transition: all 0.8 ease;
 }
 button:hover {
-  border-color: #646cff;
+  transform: scale(1.1);
+  transition: all 0.8 ease;
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: none;
 }
 
 .card {
@@ -70,7 +74,7 @@ button:focus-visible {
 
 #app {
   max-width: 100%;
-  min-height: 1080px;
+  min-height: 100vh;
   text-align: center;
 }
 

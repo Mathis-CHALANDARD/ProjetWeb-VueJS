@@ -18,7 +18,8 @@ export default {
 
 <template>
 	<div class="card">
-		<h2>{{ post.title }}</h2>
+		<h2>{{ post.title }} | {{post.tag}}</h2>
+		<h4>by {{post.user.name}}</h4>
 
 		<p>{{ post.text }}</p>
 		<button type="button" @click="clicked">

@@ -1,26 +1,14 @@
 <script>
 //barre de navigation
 export default {
-	props: {
-        icon:{
-            type : String,
-            default : 'cancel'
-        },
-
-        routeName:{
-            type : String,
-            default : '/'
-        }
-    },
+	props: ['icon', 'routeName', 'handleClick'],
 	data() {
 		return {};
 	},
 
 	methods: {
-        goTo(){
-            this.$router.push({
-                name : this.routeName
-            });
+        clicked(){
+            this.handleClick();
         }
     },
 
@@ -30,18 +18,11 @@ export default {
 
 <template>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <router-link :to="this.routeName" class="btnColor"> 
-        <span class="material-symbols-outlined">
-        {{icon}}
-        </span>
-    </router-link>
-        
+    <button @click="clicked" class="btnColor"> <span class="material-symbols-outlined"> {{icon}} </span> </button>
 </template>
 
 <style scoped>
-
     .btnColor {
         color: #fff;
     }
-
 </style>
