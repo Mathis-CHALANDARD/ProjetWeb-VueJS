@@ -68,8 +68,8 @@ export default{
             <router-link to="/" class="SiteName" @click="() => {if (this.isOpen === true){ menubar()} categoryArticle = 'Tout'}"> CatCatCatCat</router-link>
         </div>
         <div class="btns">
-            <NavBarBtn icon = "search" route = "Home" :handle-click="() => {this.goTo(route)}"></NavBarBtn>
-            <NavBarBtn icon = "login" route = "Login" :handle-click="() => {this.goTo(route)}"></NavBarBtn>
+            <NavBarBtn icon = "search" :handle-click="() => {this.goTo('Home')}"></NavBarBtn>
+            <NavBarBtn icon = "login" :handle-click="() => {this.goTo('Login')}"></NavBarBtn>
             <NavBarBtn icon = "menu" :handle-click="menubar"></NavBarBtn>
         </div>
         <div class="Menu">

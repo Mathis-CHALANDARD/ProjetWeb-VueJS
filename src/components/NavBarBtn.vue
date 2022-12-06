@@ -1,7 +1,7 @@
 <script>
 //barre de navigation
 export default {
-	props: ['icon', 'routeName', 'handleClick'],
+	props: ['icon', 'handleClick'],
 	data() {
 		return {};
 	},
