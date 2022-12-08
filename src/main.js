@@ -5,6 +5,7 @@ import './assets/main.css';
 import ListeArticle from './components/ListeArticle.vue';
 import IdPost from './components/IdPost.vue';
 import Login from './components/Login.vue';
+import Creation from './components/Creation.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,6 +25,12 @@ const router = createRouter({
       path: '/login',
       component: Login,
       name: 'Login',
+      props: true
+    },
+    {
+      path: '/createArticle',
+      component: Creation,
+      name: 'Creation',
       props: true
     }
   ]
