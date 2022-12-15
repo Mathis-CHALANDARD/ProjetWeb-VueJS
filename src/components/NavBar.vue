@@ -54,7 +54,7 @@ export default {
         </div>
         <div class="btns">
             <NavBarBtn icon = "search" route = "Home" :handle-click="() => {this.goTo(route)}"></NavBarBtn>
-            <NavBarBtn icon = "login"  :handle-click="() => {this.goTo('Login')}"></NavBarBtn>
+            <NavBarBtn icon = "person"  :handle-click="() => {this.goTo('Login')}"></NavBarBtn>
             <NavBarBtn icon = "menu"  :handle-click="menubar"></NavBarBtn>
         </div>
         <div class="Menu">

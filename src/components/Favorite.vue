@@ -1,6 +1,5 @@
 <script>
-//montre tout les articles disponibles
-
+//montre tout les articles favoris
 import NavBar from './NavBar.vue';
 import NavBarBtn from './NavBarBtn.vue';
 import PostItem from './Article.vue';
@@ -15,8 +14,10 @@ export default{
     data(){
         return{
             posts: [],
+            postsFavorite: [],
             tags:["Tout", "Culture", "Politique", "Sport"],
-            categoryArticle:'Tout'
+            categoryArticle:'Tout',
+            user: ''
         };
     },
 
@@ -52,11 +53,30 @@ export default{
     mounted(){
         this.isOpen=true;
         this.menubar();
-		fetch('http://localhost:3000/article')
-			.then((res) => res.json())
-			.then((res) => {
-				this.posts = res;
-		});
+        if (localStorage.getItem('hasToken') == 1){
+            fetch('http://localhost:3000/user/id/' + localStorage.getItem('id'))
+            .then((res) => res.json())
+            .then((res) => {
+                this.user = res;
+                return res;
+            })
+            .then((user) =>{
+                console.log(user)
+                return fetch('http://localhost:3000/favorite/User/' + user.id)})
+            .then((res) => res.json())
+            .then((res) => {
+                this.posts = res;
+            })
+            .then(() => {
+                this.posts.forEach(element => {
+                    fetch('http://localhost:3000/article/id/' + element.FavoriteDto_articleId)
+                    .then((res)=> res.json())
+                    .then((res) => {
+                        this.postsFavorite.push(res);
+                    })
+                });
+            });
+        }
     }
 }   
 </script>
@@ -91,15 +111,15 @@ export default{
             </div>
         </div>
     </div>
-	<h1>Nos articles</h1>
+	<h1>Vos Favoris</h1>
 
     <div v-if="categoryArticle === 'Tout'">
-        <div v-for="article in posts">
+        <div v-for="article in postsFavorite">
             <PostItem :post="article" textButton="Lire l'article en entier" :handleClick="this.readArticle" />
         </div>
     </div>
     <div v-else>
-        <div v-for="article in posts">
+        <div v-for="article in postsFavorite">
             <div v-if="article.tag === categoryArticle">
                 <PostItem :post="article" textButton="Lire l'article en entier" :handleClick="this.readArticle" />
             </div>
@@ -109,7 +129,6 @@ export default{
 </template>
 
 <style scoped>
-
 .NavBar{
     display: flex;
     z-index: 7;

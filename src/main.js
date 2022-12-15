@@ -6,6 +6,7 @@ import ListeArticle from './components/ListeArticle.vue';
 import IdPost from './components/IdPost.vue';
 import Login from './components/Login.vue';
 import Creation from './components/Creation.vue'
+import Favorite from  './components/Favorite.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,6 +32,12 @@ const router = createRouter({
       path: '/createArticle',
       component: Creation,
       name: 'Creation',
+      props: true
+    },
+    {
+      path: '/favorites',
+      component: Favorite,
+      name: 'Favorite',
       props: true
     }
   ]

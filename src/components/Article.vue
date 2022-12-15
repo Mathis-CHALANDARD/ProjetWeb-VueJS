@@ -21,7 +21,7 @@ export default {
 		<h2>{{ post.title }} | {{post.tag}}</h2>
 		<h4>by {{post.user.username}}</h4>
 
-		<p>{{ post.text }}</p>
+		<p>{{ post.text.substring(0,100) }}...</p>
 		<button type="button" @click="clicked">
 			{{ textButton }}
 		</button>

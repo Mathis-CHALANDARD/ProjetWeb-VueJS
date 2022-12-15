@@ -123,11 +123,15 @@ export default {
 		<h1> Bienvenue {{ user.username }} !  </h1>
 		<div v-if="(user.isAdmin == 1)" >
 			<h4>Connecté en tant qu'administrateur</h4>
-			<button type="submit" class="disconnect" @click="disconnect()">Se déconnecter</button>
-			<router-link to="/createArticle"> Créer un article</router-link>
+			<router-link to="/favorites">Accéder aux favoris</router-link>
+			<div>
+				<button type="submit" class="disconnect" @click="disconnect()">Se déconnecter</button>
+				<router-link to="/createArticle">Créer un article</router-link>
+			</div>
 		</div>
 		<div v-else>
 			<h4>Connecté en tant que visiteur</h4>
+			<router-link to="/favorites">Accéder aux favoris</router-link>
 			<button type="submit" class="disconnect" @click="disconnect()">Se déconnecter</button>
 		</div>
 

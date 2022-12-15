@@ -69,9 +69,9 @@ export default {
                 <h2>Selectionnez le tag de l'article</h2>
                 <select v-model="tag">
                     <option disabled value="">Choisissez</option>
-                    <option value="culture">Culture</option>
-                    <option value="politique">Politique</option>
-                    <option value="sport">Sport</option>
+                    <option value="Culture">Culture</option>
+                    <option value="Politique">Politique</option>
+                    <option value="Sport">Sport</option>
                 </select>
             </div>
         </div>
